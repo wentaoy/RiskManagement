@@ -28,9 +28,9 @@
         cloudFoundry: 
           apiEndpoint: "https://api.cf.us10.hana.ondemand.com"
           org: "1495781ftrial_trial2-uj8dl5te"
-          space: "dev-space"
+          space: "dev space"
           credentialsId: "cfdeploy"
-          appName: ""
+          appName: "risk management"
         mtaDeployParameters: "-f --version-rule ALL"
       artifactPrepareVersion:
         versioningType: "cloud_noTag"
