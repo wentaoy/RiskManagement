@@ -25,9 +25,6 @@ node(){
   stage('Deploy')   {
     cloudFoundryDeploy(
       script: this,
-      apiEndpoint: "${apiEndpoint}",
-      org: "${org}",
-      space: "${space}",
       deployTool:'mtaDeployPlugin',
       deployType: 'standard'
     )
