@@ -9,4 +9,27 @@
 
 @Library('piper-lib-os') _
 
-cloudFoundryDeploy script:this
+node(){
+  stage('Prepare')   {
+    deleteDir()
+    checkout scm
+    setupPipelineEnvironment script:this
+  }
+
+  stage('Build')   {
+    mtaBuild(
+      script: this,
+    )
+  }
+
+  stage('Deploy')   {
+    cloudFoundryDeploy(
+      script: this,
+      apiEndpoint: "${apiEndpoint}",
+      org: "${org}",
+      space: "${space}",
+      deployTool:'mtaDeployPlugin',
+      deployType: 'standard'
+    )
+  }
+}
